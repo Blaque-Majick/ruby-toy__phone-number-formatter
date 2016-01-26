@@ -2,14 +2,15 @@
 # returns a properly formatted phone number.
 
 def format_phone_number(phone_number_str)
-  digits = []
+  digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+  number = Array.new(10)
   input = phone_number_str.split(//)
   input.each do |x|
-    if x == "0" || x == "1" || x == "2" || x == "3" || x == "4" || x == "5" || x == "6" || x == "7" || x == "8" || x == "9"
-      digits.push(x)
+    if digits.include?(x)
+      number.push(x)
     end
   end
-  digits = digits.join
-  return "(" + digits[0..2] + ")" + " " + digits[3..5] + "-" + digits[6..10]
+  number = number.join
+  return "(" + number[0..2] + ")" + " " + number[3..5] + "-" + number[6..10]
 end
 
